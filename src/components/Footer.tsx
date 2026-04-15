@@ -106,16 +106,27 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="text-sm font-semibold text-slate-300">
-              About
+              Legal
             </h3>
             <ul className="mt-3 space-y-2">
               <li>
-                <span className="text-sm text-slate-400">
-                  Data sourced from public records
-                </span>
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm text-slate-400 hover:text-cyan-400"
+                >
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <span className="text-sm text-slate-400">
+                <Link
+                  href="/terms-of-use"
+                  className="text-sm text-slate-400 hover:text-cyan-400"
+                >
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <span className="text-sm text-slate-500">
                   Not affiliated with any government body
                 </span>
               </li>

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getAllStates, getHighwaysByState, highways } from '../../../lib/highways';
+import { getAllStates, getHighwaysByState } from '../../../lib/highways';
 import HighwayCard from '../../../components/HighwayCard';
+import AdBanner from '../../../components/AdBanner';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -46,6 +47,8 @@ export default async function StatePage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <AdBanner variant="banner" className="mb-6" />
+
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-cyan-400">Home</Link>
