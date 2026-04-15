@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import StatCard from '../components/StatCard';
 import HighwayCard from '../components/HighwayCard';
+import IndiaMap from '../components/IndiaMap';
 import {
   highways,
   getStats,
@@ -66,6 +67,11 @@ export default function Home() {
             Browse All
           </Link>
         </div>
+      </section>
+
+      {/* Interactive India Map */}
+      <section className="mb-10">
+        <IndiaMap />
       </section>
 
       {/* Stats Dashboard */}
