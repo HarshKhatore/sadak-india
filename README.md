@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sadak India - India Road Tracker
+
+A transparency platform tracking India's National Highways and Expressways with public data from NHAI, MoRTH, and government sources.
+
+## Features
+
+- **50+ Highways & Expressways** - Real data on National Highways (NH) and Expressways
+- **Interactive India Map** - State heatmap with highway route visualization
+- **Highway Report Cards** - Detailed stats, construction status, costs, and facts
+- **State-wise Dashboards** - Filter and explore by state
+- **Advanced Search** - Filter by status, type, and text search
+- **Dark "Control Room" Theme** - Modern, data-focused UI
+
+## Tech Stack
+
+- **Next.js 16.2.3** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS v4** - Styling
+- **Google AdSense** - 7 ad placements across pages
+- **Google Analytics 4** - Traffic analytics
+- **JSON-LD Structured Data** - SEO optimization
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/HarshKhatore/sadak-india.git
+cd sadak-india
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Vercel (Recommended)
 
-## Learn More
+1. Push code to GitHub
+2. Import project in [Vercel](https://vercel.com/new)
+3. Deploy with zero configuration
+4. Update environment variables if needed
 
-To learn more about Next.js, take a look at the following resources:
+### Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create `.env.local`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
 
-## Deploy on Vercel
+## AdSense Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Create AdSense Account**
+   - Apply at [Google AdSense](https://adsense.google.com)
+   - Add your domain (e.g., sadakindia.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Required Pages** (Already included)
+   - Privacy Policy: `/privacy-policy`
+   - Terms of Use: `/terms-of-use`
+   - About: `/about`
+
+3. **Ad Placements**
+   - Homepage: 5 placements (header, sidebar x2, inline, footer)
+   - Highway Detail: 2 placements (banner, inline)
+   - Search Page: 2 placements (banner, sidebar)
+
+4. **Update AdSense ID**
+   - Edit `src/lib/constants.ts`
+   - Replace `ADSENSE_ID` with your publisher ID
+
+## SEO & Indexing
+
+### Sitemap
+- Dynamic sitemap at `/sitemap.xml`
+- Includes all highways, states, and static pages
+- Auto-updates with new data
+
+### Robots.txt
+- Allows all crawlers
+- Points to sitemap
+
+### Structured Data
+- JSON-LD for website schema
+- Road schema for highway pages
+- SearchAction for search functionality
+
+### Open Graph
+- Custom OG image at `/og-image.svg`
+- Twitter card support
+- Social sharing optimized
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── about/              # About page
+│   ├── highway/[id]/       # Highway detail pages
+│   ├── privacy-policy/    # Privacy policy
+│   ├── search/            # Search page
+│   ├── state/[slug]/      # State dashboards
+│   ├── terms-of-use/      # Terms of use
+│   ├── layout.tsx         # Root layout with GA & AdSense
+│   ├── page.tsx           # Homepage
+│   ├── robots.ts          # Robots.txt
+│   └── sitemap.ts         # Dynamic sitemap
+├── components/
+│   ├── AdBanner.tsx       # AdSense ad component
+│   ├── Footer.tsx         # Footer
+│   ├── Header.tsx         # Header
+│   ├── HighwayCard.tsx    # Highway card
+│   ├── IndiaMap.tsx       # Interactive map
+│   └── StatCard.tsx       # Stat card
+└── lib/
+    ├── constants.ts       # App constants
+    └── highways.ts        # Highway data & functions
+```
+
+## Data Sources
+
+- National Highways Authority of India (NHAI)
+- Ministry of Road Transport & Highways (MoRTH)
+- Wikipedia (verified against official sources)
+- Central Public Procurement Portal (CPPP)
+
+## Contributing
+
+This is a transparency project using public data. Contributions welcome:
+- Data corrections
+- New highway additions
+- UI improvements
+- Bug reports
+
+## License
+
+MIT License - See LICENSE file for details
+
+## Contact
+
+Email: dailywishcards@gmail.com
+GitHub: https://github.com/HarshKhatore/sadak-india
+
+---
+
+Built with ❤️ for India's road infrastructure transparency

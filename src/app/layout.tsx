@@ -42,6 +42,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'Sadak India',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Sadak India - Tracking India\'s Roads with Transparency',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.svg'],
   },
   robots: {
     index: true,
@@ -60,6 +72,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/globe.svg" />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"

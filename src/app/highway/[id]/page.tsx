@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { highways, getHighwayById, getHighwaysByState } from '../../../lib/highways';
 import AdBanner from '../../../components/AdBanner';
+import { BASE_URL } from '../../../lib/constants';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -44,8 +45,44 @@ export default async function HighwayPage({ params }: Props) {
     .filter((h, i, arr) => arr.findIndex((x) => x.id === h.id) === i)
     .slice(0, 6);
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Road',
+    name: highway.name,
+    alternateName: highway.number,
+    description: highway.description,
+    url: `${BASE_URL}/highway/${highway.id}`,
+    length: {
+      '@type': 'QuantitativeValue',
+      value: highway.lengthKm,
+      unitCode: 'KMT',
+      unitText: 'kilometers',
+    },
+    startsFrom: {
+      '@type': 'Place',
+      name: highway.origin,
+    },
+    endsAt: {
+      '@type': 'Place',
+      name: highway.terminus,
+    },
+    roadClassification: highway.type === 'expressway' ? 'Expressway' : 'National Highway',
+    status: highway.status === 'operational' ? 'Open' : 'Under Construction',
+    isAccessibleForFree: true,
+    provider: {
+      '@type': 'Organization',
+      name: 'Sadak India',
+      url: BASE_URL,
+    },
+  };
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <AdBanner variant="banner" className="mb-6" />
 
       {/* Breadcrumb */}
@@ -189,5 +226,6 @@ export default async function HighwayPage({ params }: Props) {
         </div>
       )}
     </div>
+    </>
   );
 }
