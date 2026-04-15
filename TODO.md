@@ -11,8 +11,12 @@
 - [x] Google Analytics
 - [x] JSON-LD structured data
 - [x] Privacy Policy, Terms of Use
+- [x] About page (AdSense required)
 - [x] Error and 404 pages
 - [x] SEO sitemap and robots.txt
+- [x] Open Graph images for social sharing
+- [x] PWA manifest.json
+- [x] Road schema structured data on highway pages
 
 ## Priority 1: Expand Data
 - [ ] Add remaining 550+ NHs from Wikipedia
