@@ -2,6 +2,7 @@ import Link from 'next/link';
 import StatCard from '../components/StatCard';
 import HighwayCard from '../components/HighwayCard';
 import IndiaMap from '../components/IndiaMap';
+import AdBanner from '../components/AdBanner';
 import {
   highways,
   getStats,
@@ -20,6 +21,8 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Top Banner Ad */}
+      <AdBanner variant="banner" className="mb-6" />
       {/* Hero */}
       <section className="mb-10 rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-800 to-slate-900 p-8 sm:p-12">
         <div className="flex items-center gap-3">
@@ -73,6 +76,9 @@ export default function Home() {
       <section className="mb-10">
         <IndiaMap />
       </section>
+
+      {/* Ad after map */}
+      <AdBanner variant="inline" className="mb-8" />
 
       {/* Stats Dashboard */}
       <section className="mb-10">
@@ -180,6 +186,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad between NH and Expressways */}
+      <AdBanner variant="banner" className="mb-8" />
+
       {/* Expressways */}
       <section id="expressways" className="mb-10">
         <div className="mb-4 flex items-center justify-between">
@@ -196,6 +205,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Ad before states */}
+      <AdBanner variant="inline" className="mb-8" />
 
       {/* States */}
       <section id="states" className="mb-10">

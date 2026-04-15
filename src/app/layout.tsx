@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { ADSENSE_ID } from '../lib/constants';
 import './globals.css';
 
 const geistSans = Geist({
@@ -55,6 +57,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
+      <head>
+        <Script
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-[#0f172a] font-sans text-slate-200 antialiased">
         <Header />
         <main className="flex-1">{children}</main>

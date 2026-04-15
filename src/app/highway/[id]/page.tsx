@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { highways, getHighwayById, getHighwaysByState } from '../../../lib/highways';
+import AdBanner from '../../../components/AdBanner';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -45,6 +46,8 @@ export default async function HighwayPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <AdBanner variant="banner" className="mb-6" />
+
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-cyan-400">Home</Link>
@@ -121,6 +124,9 @@ export default async function HighwayPage({ params }: Props) {
           </div>
         </div>
       )}
+
+      {/* Ad before route */}
+      <AdBanner variant="inline" className="mb-8" />
 
       {/* Route - States */}
       <div className="mb-8 rounded-xl border border-slate-700/50 bg-slate-800/50 p-5">
